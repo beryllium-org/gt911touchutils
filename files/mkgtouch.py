@@ -19,6 +19,7 @@ if not ("h" in vr("opts")["o"] or "help" in vr("opts")["o"]):
         except:
             pass
     vr("intr", None)
+    if "intr" in vr("opts")["o"]:
         try:
             vr("intr", be.devices["gpiochip"][0].input(vr("opts")["o"]["intr"]))
         except:
