@@ -1,0 +1,6 @@
+mpy submodules/CircuitPython_GT911/gt911.py gt911.mpy
+file gt911.mpy /lib/gt911.mpy
+file mkgtouch.lja /bin/mkgtouch.lja
+file mkgtouch.py /bin/mkgtouch.py
+file rmgtouch.lja /bin/rmgtouch.lja
+file rmgtouch.py /bin/rmgtouch.py

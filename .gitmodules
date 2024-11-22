@@ -4,3 +4,6 @@
 [submodule "submodules/CircuitMPY"]
 	path = submodules/CircuitMPY
 	url = https://github.com/beryllium-org/CircuitMPY
+[submodule "submodules/CircuitPython_GT911"]
+	path = submodules/CircuitPython_GT911
+	url = https://github.com/rgrizzell/CircuitPython_GT911
