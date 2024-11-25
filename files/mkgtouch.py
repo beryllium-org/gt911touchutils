@@ -12,12 +12,6 @@ if not ("h" in vr("opts")["o"] or "help" in vr("opts")["o"]):
                 term.write("Error: Invalid I2C bus!")
         else:
             term.write("Error: Invalid I2C bus!")
-    vr("addr", 93)
-    if "addr" in vr("opts")["o"]:
-        try:
-            vr("addr", int(vr("opts")["o"]["addr"]))
-        except:
-            pass
     vr("intr", None)
     if "intr" in vr("opts")["o"]:
         try:
@@ -34,7 +28,10 @@ if not ("h" in vr("opts")["o"] or "help" in vr("opts")["o"]):
         be.api.subscript("/bin/stringproccessing/devid.py")
         try:
             from gt911 import GT911
-            be.devices["gtouch"][vr("dev_id")] = GT911(vr("i2c"), i2c_address=vr("addr"), int_pin=vr("intr"))
+            try:
+                be.devices["gtouch"][vr("dev_id")] = GT911(vr("i2c"), i2c_address=93, int_pin=vr("intr"))
+            except:
+                be.devices["gtouch"][vr("dev_id")] = GT911(vr("i2c"), i2c_address=20, int_pin=vr("intr"))
             del GT911
             be.api.setvar("return", "0")
             dmtex("gtouch device registered at /dev/gtouch" + str(vr("dev_id")))
@@ -43,5 +40,5 @@ if not ("h" in vr("opts")["o"] or "help" in vr("opts")["o"]):
     except:
         term.write("Error: Invalid I2C bus!")
 else:
-    term.write("Usage:\n    mkgtouch --i2c /dev/i2cX --addr I2C_ADDRESS --intr INTERRUPT_PIN\n")
+    term.write("Usage:\n    mkgtouch --i2c /dev/i2cX --intr INTERRUPT_PIN\n")
     be.api.setvar("return", "0")
