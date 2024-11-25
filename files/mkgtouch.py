@@ -12,7 +12,7 @@ if not ("h" in vr("opts")["o"] or "help" in vr("opts")["o"]):
                 term.write("Error: Invalid I2C bus!")
         else:
             term.write("Error: Invalid I2C bus!")
-    vr("addr", 20)
+    vr("addr", 93)
     if "addr" in vr("opts")["o"]:
         try:
             vr("addr", int(vr("opts")["o"]["addr"]))
